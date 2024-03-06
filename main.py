@@ -8,8 +8,6 @@ import uvicorn, secrets, time, jwt, hashlib, dotenv, os, asyncio
 from src import tasks
 from src.apis import (
     users,
-    sims,
-    hardwares,
     # permissions
 )
 from src import models
@@ -43,8 +41,6 @@ app.add_middleware(
 router = APIRouter()
 security = HTTPBasic()
 router.include_router(users.router)
-router.include_router(sims.router)
-router.include_router(hardwares.router)
 # router.include_router(permissions.router)
 app.include_router(router)
 
